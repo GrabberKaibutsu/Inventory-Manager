@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <%- include('./partials/head.ejs', {title: 'Show Page'}) %>
+    </head>
+    
+</head>
+<body>
+    <nav>
+        <%- include('./partials/nav.ejs') %>
+      </nav>
+    <h1>Fruits Show Page</h1>
+    <p>
+    <% if(fruit){ %>
+
+      The Fruits name is <%= fruit.name %> and its color is <%= fruit.color %> 
+
+        <% if(fruit.readyToEat === true) { %>
+            <span>It is ready to eat</span>
+        <% } else { %>
+            <span>It is not ready to eat</span>
+            <% }%>
+            
+    <% }else { %>
+        
+        <h1>Fruit at that index does not exist</h1>
+
+    <% } %>
+</p>
+<div class="showPageContainer">
+    <a href="/fruits/<%= fruit._id %>/edit">Edit this Fruit</a>
+    <a href="/">Home</a>
+</div>
+
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
