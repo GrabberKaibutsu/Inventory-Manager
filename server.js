@@ -6,6 +6,8 @@ const connectLiveReload = require("connect-livereload");
 const methodOverride = require('method-override') 
 const morgan = require('morgan')
 const session = require('express-session')
+
+
 const PORT = process.env.PORT || 5000
 
 const db = require('./models');
@@ -52,17 +54,17 @@ app.get('/', function (req, res) {
 
 app.get('/seed', function (req, res) {
    
-    db.Product.deleteMany({})
-        .then(removedFruits => {
-            console.log(`Removed ${removedFruits.length} products`)
+    db.Products.deleteMany({})
+         .then(removedProducts => {
+              console.log(`Removed ${removedProducts.length} products`)
 
             
-            db.Product.insertMany(db.seedFruits)
-                .then(addedFruits => {
-                    console.log(`Added ${addedFruits.length} products`)
-                    res.json(addedFruits)
-                })
-        })
+      db.Products.insertMany(db.seedProducts)
+        .then(addedProducts => {
+        console.log(`Added ${addedProducts.length} products`)
+          res.json(addedProducts)
+  })
+ })
 });
 
 app.get('/about', function (req, res) {
