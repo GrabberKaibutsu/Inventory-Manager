@@ -6,12 +6,13 @@
     <title>Login</title>
 </head>
 <body>
-    <%- include('../partials/nav') %>
+    <%- include('../partials/navLog') %>
     <h1>Login</h1>
     <form action="/sessions" method="POST">
         Username: <input required type="text" name="username"/><br>
         Password: <input required type="text" name="password"><br>
         <input type="submit" name="" value="Login"/>
     </form>
+    <a href="/user/signup">Sign up here</a>
 </body>
 </html>

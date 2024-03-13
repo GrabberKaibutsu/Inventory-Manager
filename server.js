@@ -67,9 +67,6 @@ app.get('/seed', function (req, res) {
  })
 });
 
-app.get('/about', function (req, res) {
-    res.render('about')
-});
 
 
  app.use('/main', proCtrl)

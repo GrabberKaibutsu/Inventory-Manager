@@ -14,7 +14,7 @@
     <p>
     <% if(fruit){ %>
 
-      The Fruits name is <%= fruit.name %> and its color is <%= fruit.color %> 
+      The Item is <%= fruit.name %> and  <%= fruit.color %> 
 
         <% if(fruit.readyToEat === true) { %>
             <span>It is ready to eat</span>
@@ -29,7 +29,7 @@
     <% } %>
 </p>
 <div class="showPageContainer">
-    <a href="/fruits/<%= fruit._id %>/edit">Edit this Fruit</a>
+    <a href="/main/<%= main._id %>/edit">Edit this Entry</a>
     <a href="/">Home</a>
 </div>
 
