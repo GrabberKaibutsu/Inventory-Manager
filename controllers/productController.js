@@ -58,7 +58,7 @@ router.get("/:id/edit", (req, res) => {
 
 
 router.put("/:id", async (req, res) => {
-  req.body.readyToEat = req.body.readyToEat === "on" ? true : false;
+  req.body.isLow = req.body.isLow === "on" ? true : false;
   await db.product.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
     (product) => res.redirect("/main/" + product._id)
   );
