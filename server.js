@@ -54,15 +54,15 @@ app.get('/', function (req, res) {
 
 app.get('/seed', function (req, res) {
    
-    db.Products.deleteMany({})
-         .then(removedProducts => {
-              console.log(`Removed ${removedProducts.length} products`)
+    db.product.deleteMany({})
+         .then(removedProduct => {
+              console.log(`Removed ${removedProduct.length} products`)
 
             
-      db.Products.insertMany(db.seedProducts)
-        .then(addedProducts => {
-        console.log(`Added ${addedProducts.length} products`)
-          res.json(addedProducts)
+      db.product.insertMany(db.seedProducts)
+        .then(addedProduct => {
+        console.log(`Added ${addedProduct.length} products`)
+          res.json(addedProduct)
   })
  })
 });

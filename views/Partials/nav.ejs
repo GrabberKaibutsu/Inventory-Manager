@@ -1,0 +1,19 @@
+<header>
+    <h1>Fruit Finder</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <% if(currentUser){ %>
+        <li>Welcome <%= currentUser.username %></li>
+        <li><a href="/main/new">Create a New Entry</a></li>
+        <li>
+          <form to="/sessions/?_method=DELETE" method="POST">
+            <input type="submit" value="Logout" />
+          </form>
+        </li>
+  
+        <% } %>
+      </ul>
+    </nav>
+  </header>
+  

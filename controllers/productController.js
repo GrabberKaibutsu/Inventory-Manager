@@ -12,7 +12,7 @@ router.use(isAuthenticated);
 
 router.get("/", (req, res) => {
   console.log(req.session)
-  db.Products.find({ user: req.session.currentUser._id }).then((product) => {
+  db.product.find({ user: req.session.currentUser._id }).then((product) => {
     res.render("home", { 
       product: product,
         currentUser: req.session.currentUser
@@ -21,22 +21,22 @@ router.get("/", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-  res.render("new-fruit", { currentUser: req.session.currentUser });
+  res.render("newProduct", { currentUser: req.session.currentUser });
 });
 
 
 router.post("/", async (req, res) => {
-  req.body.readyToEat = req.body.readyToEat === "on" ? true : false;
+  req.body.isLow = req.body.isLow === "on" ? true : false;
   console.log(req.session);
   req.body.user = req.session.currentUser._id;
-  await db.Products.create(req.body).then((product) =>
+  await db.product.create(req.body).then((product) =>
     res.redirect("/main/" + product._id)
   );
 });
 
 
 router.get("/:id", function (req, res) {
-  db.Products.findById(req.params.id)
+  db.product.findById(req.params.id)
     .then((product) => {
       res.render("details", {
         product: product,
@@ -48,7 +48,7 @@ router.get("/:id", function (req, res) {
 
 
 router.get("/:id/edit", (req, res) => {
-  db.Products.findById(req.params.id).then((product) => {
+  db.product.findById(req.params.id).then((product) => {
     res.render("edit", {
       product: product,
       currentUser: req.session.currentUser 
@@ -59,13 +59,13 @@ router.get("/:id/edit", (req, res) => {
 
 router.put("/:id", async (req, res) => {
   req.body.readyToEat = req.body.readyToEat === "on" ? true : false;
-  await db.Products.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
+  await db.product.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(
     (product) => res.redirect("/main/" + product._id)
   );
 });
 
 router.delete("/:id", async (req, res) => {
-  await db.Products.findByIdAndDelete(req.params.id).then(() =>
+  await db.product.findByIdAndDelete(req.params.id).then(() =>
     res.redirect("/main")
   );
 });

@@ -10,26 +10,26 @@
     <nav>
         <%- include('./partials/nav.ejs') %>
       </nav>
-    <h1>Fruits Show Page</h1>
+    <h1>Show Page</h1>
     <p>
-    <% if(fruit){ %>
+    <% if(product){ %>
 
-      The Item is <%= fruit.name %> and  <%= fruit.color %> 
+      The Item is <%= product.name %> and the count is <%= product.count %> 
 
-        <% if(fruit.readyToEat === true) { %>
-            <span>It is ready to eat</span>
+        <% if(product.isLow === true) { %>
+            <span>Needs to be ordered</span>
         <% } else { %>
-            <span>It is not ready to eat</span>
+            <span>Is stocked</span>
             <% }%>
             
     <% }else { %>
         
-        <h1>Fruit at that index does not exist</h1>
+        <h1>Product does not exist</h1>
 
     <% } %>
 </p>
 <div class="showPageContainer">
-    <a href="/main/<%= main._id %>/edit">Edit this Entry</a>
+    <a href="/main/<%= product._id %>/edit">Edit this Entry</a>
     <a href="/">Home</a>
 </div>
 

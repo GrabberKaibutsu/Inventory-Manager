@@ -11,7 +11,7 @@ db.on('connected', function () {
 
 
 module.exports = {
-    Products: require('./product'),
+    product: require('./product'),
     User: require('./user'),
     seedProducts: require('./seed')
 }
