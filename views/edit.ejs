@@ -1,5 +1,5 @@
 <head>
-    <%- include('./partials/head.ejs', {title: `Edit ${fruit.name} | Fruit Finder`}) %>
+    <%- include('./partials/head.ejs', {title: `Edit ${product.name} | Inventory Manager`}) %>
     <link rel="stylesheet" href="/css/forms.css">
 </head>
 
@@ -10,16 +10,16 @@
         <h2>Edit a Fruit</h2>
     </section>
 
-    <form method="POST" action="/main/<%= products._id %>?_method=PUT">
+    <form method="POST" action="/main/<%= product._id %>?_method=PUT">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="<%= fruit.name %>" required>
+        <input type="text" id="name" name="name" value="<%= product.name %>" required>
         <br>
-        <label for="color">Color:</label>
-        <input type="text" id="color" name="color" value="<%= fruit.color %>" required>
+        <label for="count">Count:</label>
+        <input type="text" id="count" name="count" value="<%= product.count %>" required>
         <br>
-        <label for="readyToEat">Ready to Eat</label>
-         <input type="checkbox" name="readyToEat" id="readyToEat" <%= fruit.readyToEat ? 'checked' : '' %> >
-        <input type="submit" value="Edit Fruit">
+        <label for="isLow">Is it low on stock</label>
+         <input type="checkbox" name="isLow" id="isLow" <%= product.isLow ? 'checked' : '' %> >
+        <input type="submit" value="Edit Item">
     </form>
 
     <%- include('./partials/footer.ejs') %>
