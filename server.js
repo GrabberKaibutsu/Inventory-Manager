@@ -21,7 +21,7 @@ const app = express();
 
 
 
-if (process.env.ON_HEROKU == 'false') {
+if (process.env.ON_HEROKU === 'false') {
   const liveReloadServer = livereload.createServer();
   liveReloadServer.server.once("connection", () => {
       setTimeout(() => {
