@@ -1,22 +1,16 @@
 const express = require("express");
-
 const router = express.Router();
-
 const isAuthenticated = require("./isAuthenicated");
-
-
 const db = require("../models");
 
 router.use(isAuthenticated);
 
-
 router.get("/", (req, res) => {
-  console.log(req.session)
   db.product.find({ user: req.session.currentUser._id }).then((product) => {
     res.render("home", { 
       product: product,
-        currentUser: req.session.currentUser
-     });
+      currentUser: req.session.currentUser
+    });
   });
 });
 
@@ -24,28 +18,28 @@ router.get("/new", (req, res) => {
   res.render("newProduct", { currentUser: req.session.currentUser });
 });
 
-
 router.post("/", async (req, res) => {
   req.body.isLow = req.body.isLow === "on" ? true : false;
-  console.log(req.session);
   req.body.user = req.session.currentUser._id;
   await db.product.create(req.body).then((product) =>
     res.redirect("/main/" + product._id)
   );
 });
 
-
 router.get("/:id", function (req, res) {
   db.product.findById(req.params.id)
     .then((product) => {
-      res.render("details", {
-        product: product,
-        currentUser: req.session.currentUser 
-      });
+      if (product.user.toString() === req.session.currentUser._id.toString()) {
+        res.render("details", {
+          product: product,
+          currentUser: req.session.currentUser
+        });
+      } else {
+        res.render("404");
+      }
     })
     .catch(() => res.render("404"));
 });
-
 
 router.get("/:id/edit", (req, res) => {
   db.product.findById(req.params.id).then((product) => {
