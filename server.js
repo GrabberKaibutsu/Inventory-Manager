@@ -21,12 +21,15 @@ const app = express();
 
 
 
-const liveReloadServer = livereload.createServer();
-liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 100);
-});
+if (process.env.ON_HEROKU === 'false') {
+  const liveReloadServer = livereload.createServer();
+  liveReloadServer.server.once("connection", () => {
+      setTimeout(() => {
+      liveReloadServer.refresh("/");
+      }, 100);
+  });
+  app.use(connectLiveReload());
+}
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
