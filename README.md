@@ -28,7 +28,7 @@ morgan: 1.10.0.
 ## Installation Instructions 
 
 
-Launch app [Here.]([https://inventory-manager-2-93ea6c3f523f.herokuapp.com/sessions/new])
+Launch app [Here.](https://inventory-manager-2-93ea6c3f523f.herokuapp.com/sessions/new)
 
 <br>
 
