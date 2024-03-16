@@ -14,6 +14,7 @@ An inventory management app for personal or professtional use
 <details>
   <summary>see npm dependencies</summary>
 
+
 bcrypt: 5.1.1,
   
 connect-livereload: 0.6.1,
