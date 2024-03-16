@@ -9,14 +9,15 @@
     <form action="/main/" method="post">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" placeholder="Enter a name"/>
+        <br>
         <label for="count">Count:</label>
         <input type="number" name="count" id="count" placeholder="How many"/>
+        <br>
         <label for="isLow">low on stock?</label>
         <input type="checkbox" name="isLow" id="isLow"/>
         <input type="submit" value="Create Item"/>
     </form>
     <a href="/main">Go back</a>
 
-    <%- include('./Partials/footer.ejs') %>
 </body>
 </html>

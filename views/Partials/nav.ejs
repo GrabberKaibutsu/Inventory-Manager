@@ -1,10 +1,10 @@
 <header>
     <h1>Inventory Manager</h1>
-    <nav>
+    <nav class="navv">
       <ul>
-        <li><a href="/">Home</a></li>
         <% if(currentUser){ %>
-        <li>Welcome <%= currentUser.username %></li>
+        <li class="welcome">Welcome <%= currentUser.username %></li>
+        <li><a href="/">Home</a></li>
         <li><a href="/main/new">Create a New Entry</a></li>
         <li>
           <form action="/sessions/?_method=DELETE" method="POST">

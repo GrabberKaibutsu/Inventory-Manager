@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
     <head>
-        <%- include('./Partials/head.ejs', {title: 'Show Page'}) %>
+        <%- include('./Partials/head.ejs', { title: product.name + ' page' }) %>
     </head>
-    
-</head>
+<head>
+    <%- include('./Partials/detailHead.ejs') %>
+    </head>
 <body>
-    <nav>
-        <%- include('./Partials/nav.ejs') %>
-      </nav>
-    <h1>Show Page</h1>
-    <p>
+    <p class="p1">
     <% if(product){ %>
-
       The Item is <%= product.name %> and the count is <%= product.count %> 
-
-        <% if(product.isLow === true) { %>
+    <% }else { %>
+        <h1>Product does not exist</h1>
+    <% } %>
+</p>
+<p class="p2">
+    <% if(product.isLow === true) { %>
             <span>Needs to be ordered</span>
         <% } else { %>
             <span>Is stocked</span>
             <% }%>
-            
-    <% }else { %>
-        
-        <h1>Product does not exist</h1>
-
-    <% } %>
-</p>
-<div class="showPageContainer">
+        </p>        
+<div>
     <a href="/main/<%= product._id %>/edit">Edit this Entry</a>
-    <a href="/">Home</a>
 </div>
-
-
-    <%- include('./Partials/footer.ejs') %>
+<a class="homes" href="/">Home</a>
 </body>
 </html>

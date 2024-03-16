@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/style.css">
     <title>Login</title>
 </head>
 <body>
-    <%- include('../Partials/navLog.ejs') %>
     <h1>Login</h1>
-    <form action="/sessions" method="POST">
+    <form class="log" action="/sessions" method="POST">
         Username: <input required type="text" name="username"/><br>
         Password: <input required type="text" name="password"><br>
         <input type="submit" name="" value="Login"/>
     </form>
+    <%- include('../Partials/navLog.ejs') %>
 </body>
 </html>
