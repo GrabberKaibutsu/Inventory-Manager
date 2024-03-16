@@ -1,4 +1,4 @@
-# Guess the word game
+# Inventory Manager 
 
 An inventory management app for personal or professtional use. Can track the name, count, and if it needs to be ordered or restocked.
 
