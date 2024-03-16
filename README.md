@@ -10,7 +10,8 @@ An inventory management app for personal or professtional use. Can track the nam
 3. Javascript 
 4. Git Bash 
 5. Visual Studio Code.
-6. Dependencies
+6. ChatGPT (for private sessions)
+7. Dependencies
 <details>
   <summary>see npm dependencies</summary>
 
