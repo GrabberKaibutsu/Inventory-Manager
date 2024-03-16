@@ -1,6 +1,6 @@
 # Guess the word game
 
-An inventory management app for personal or professtional use
+An inventory management app for personal or professtional use. Can track the name, count, and if it needs to be ordered or restocked.
 
 ## Technologies Used
 
