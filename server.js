@@ -55,22 +55,6 @@ app.get('/', function (req, res) {
   res.redirect('/Main')
 });
 
-app.get('/seed', function (req, res) {
-   
-    db.product.deleteMany({})
-         .then(removedProduct => {
-              console.log(`Removed ${removedProduct.length} products`)
-
-            
-      db.product.insertMany(db.seedProducts)
-        .then(addedProduct => {
-        console.log(`Added ${addedProduct.length} products`)
-          res.json(addedProduct)
-  })
- })
-});
-
-
 
  app.use('/main', proCtrl)
  app.use('/users', userCtrl)
